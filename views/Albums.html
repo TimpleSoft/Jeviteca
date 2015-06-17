@@ -4,12 +4,7 @@
 
     <tbody>
 
-        <tr ng-repeat="album in albums">
-
-            <td>{{ album.title }}</td>
-            <td>{{ album.year }}</td>
-
-        </tr>
+        <tr album-dir ng-repeat="album in albums" album="album"></tr>
 
     </tbody>
 

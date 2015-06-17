@@ -4,12 +4,7 @@
 
     <tbody>
 
-    <tr ng-repeat="genre in genres">
-
-        <td>{{ genre.id }}</td>
-        <td>{{ genre.name }}</td>
-
-    </tr>
+    <tr genre-dir ng-repeat="genre in genres" genre="genre"></tr>
 
     </tbody>
 

@@ -4,12 +4,7 @@
 
     <tbody>
 
-    <tr ng-repeat="band in bands">
-
-        <td>{{ band.name }}</td>
-        <td>{{ band.origin }}</td>
-
-    </tr>
+    <tr band-dir ng-repeat="band in bands" band="band"></tr>
 
     </tbody>
 
