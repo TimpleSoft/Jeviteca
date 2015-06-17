@@ -11,21 +11,43 @@ angular
         $routeSegmentProvider.segment("albums", {
 
             controller: "AlbumsCtrl",
-            templateUrl: "views/Albums.html"
+            templateUrl: "views/Albums.html",
+            resolve: {
+                Albums: ["AlbumsProvider", function(AlbumsProvider){
+
+                    return AlbumsProvider.getAlbums();
+
+                }]
+            }
 
         });
 
         $routeSegmentProvider.segment("bands", {
 
             controller: "BandsCtrl",
-            templateUrl: "views/Bands.html"
+            templateUrl: "views/Bands.html",
+            resolve: {
+                Bands: ["BandsProvider", function(BandsProvider){
+
+                    return BandsProvider.getBands();
+
+                }]
+
+            }
 
         });
 
         $routeSegmentProvider.segment("genres", {
 
             controller: "GenresCtrl",
-            templateUrl: "views/Genres.html"
+            templateUrl: "views/Genres.html",
+            resolve: {
+                Genres: ["GenresProvider", function(GenresProvider){
+
+                    return GenresProvider.getGenres();
+
+                }]
+            }
 
         });
 

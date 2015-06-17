@@ -1,7 +1,7 @@
 angular
     .module("jeviteca")
-    .controller("AlbumsCtrl", ["$scope", function ($scope) {
+    .controller("AlbumsCtrl", ["$scope", "Albums", function ($scope, Albums) {
 
-
+        $scope.albums = Albums.data;
 
     }]);
