@@ -1,0 +1,9 @@
+<span>
+    <span ng-show="supportsLocalStorage()">
+        <span ng-click="unsetFavorite()" ng-show="isFavorite()" class="glyphicon glyphicon-star"></span>
+        <span ng-click="setFavorite()" ng-hide="isFavorite()" class="glyphicon glyphicon-star-empty"></span>
+    </span>
+    <span ng-show="!supportsLocalStorage()">
+        Favoritos no soportados
+    </span>
+</span>
