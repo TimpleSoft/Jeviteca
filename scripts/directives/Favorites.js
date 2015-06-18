@@ -1,6 +1,6 @@
 angular
     .module("jeviteca")
-    .directive("favorites", function(){
+    .directive("favorites", ["Settings", function(Settings){
 
         return {
 
@@ -8,30 +8,48 @@ angular
             replace: true,
             templateUrl: "views/favorites.html",
             scope: {
-                elementId: "="
+                elementId: "=",
+                storageKey: "="
             },
 
             link: function(scope){
 
                 scope.supportsLocalStorage = function(){
                     return (typeof (Storage) !== "undefined");
-                }
+                };
 
                 scope.isFavorite = function(){
-                    var favorite = localStorage.getItem("item_"+ scope.elementId);
-                    return favorite === "true";
+                    var favs = JSON.parse(localStorage.getItem(scope.storageKey));
+                    if (favs != null) {
+                        return (favs.indexOf(scope.elementId) >= 0);
+                    }
+                    return false;
                 };
 
                 scope.setFavorite = function(){
-                    localStorage.setItem("item_" + scope.elementId, "true");
+                    var favs = JSON.parse(localStorage.getItem(scope.storageKey));
+                    if (favs != null) {
+                        // Checkeamos que el elemento no está en el array
+                        if (favs.indexOf(scope.elementId) < 0) {
+                            favs.push(scope.elementId);
+                        }
+                    }else{
+                        favs = [scope.elementId];
+                    }
+                    localStorage.setItem(scope.storageKey, JSON.stringify(favs));
                 };
 
                 scope.unsetFavorite = function(){
-                    localStorage.removeItem("item_" + scope.elementId);
-                }
+                    var favs = JSON.parse(localStorage.getItem(scope.storageKey));
+                    var index = favs.indexOf(scope.elementId);
+                    if (index > -1) {
+                        favs.splice(index, 1);
+                    }
+                    localStorage.setItem(scope.storageKey, JSON.stringify(favs));
+                };
 
             }
 
         };
 
-    });
+    }]);

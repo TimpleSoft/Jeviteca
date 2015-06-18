@@ -1,6 +1,6 @@
 angular
     .module("jeviteca")
-    .directive("bandDir", function () {
+    .directive("bandDir", ["Settings", function (Settings) {
 
         return {
             restrict: "AE",
@@ -8,7 +8,10 @@ angular
             templateUrl: "views/band.html",
             scope: {
                 band: "="
+            },
+            link: function(scope){
+                scope.storageKey = Settings.bandStorageKey;
             }
         }
 
-    });
+    }]);

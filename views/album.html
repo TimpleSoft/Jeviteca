@@ -1,14 +1,14 @@
 <tr>
 
     <td>
-        <img src="img/{{ album.image }}" width="100"/>
+        <img src="{{ ::imgPath }}{{ ::album.image }}" width="100"/>
     </td>
-    <td>{{ album.title }}</td>
-    <td>{{ album.year }}</td>
-    <td>{{ album.band.name }}</td>
-    <td>{{ album.genre.name }}</td>
+    <td>{{ ::album.title }}</td>
+    <td>{{ ::album.year }}</td>
+    <td>{{ ::album.band.name }}</td>
+    <td>{{ ::album.genre.name }}</td>
     <td>
-        <span favorites element-id="album.id"></span>
+        <span favorites element-id="album.id" storage-key="storageKey"></span>
     </td>
 
 </tr>

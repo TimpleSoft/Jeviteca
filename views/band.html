@@ -1,12 +1,15 @@
 <tr>
 
-    <td>{{ band.name }}</td>
-    <td>{{ band.origin }}</td>
+    <td>{{ ::band.name }}</td>
+    <td>{{ ::band.origin }}</td>
     <td>
         <p ng-repeat="member in band.members">
-            {{ member.name | member }}
-            {{ member.instruments | instruments }}
+            {{ ::member.name | member }}
+            {{ ::member.instruments | instruments }}
         </p>
+    </td>
+    <td>
+        <span favorites element-id="band.name" storage-key="storageKey"></span>
     </td>
 
 </tr>

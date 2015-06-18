@@ -1,6 +1,6 @@
 angular
     .module("jeviteca")
-    .directive("genreDir", function () {
+    .directive("genreDir", ["Settings", function (Settings) {
 
         return {
             restrict: "AE",
@@ -8,7 +8,12 @@ angular
             replace: true,
             scope: {
                 genre: "="
+            },
+            link: function(scope){
+
+                scope.storageKey = Settings.genreStorageKey;
+
             }
         }
 
-    });
+    }]);
