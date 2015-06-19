@@ -1,9 +1,11 @@
 <tr>
 
     <td>
-        <img src="{{ ::imgPath }}{{ ::album.image }}" width="100"/>
+        <img src="{{ ::imgPath }}{{ ::album.image }}" ng-alt="{{ ::album.title }}" width="100"/>
     </td>
-    <td>{{ ::album.title }}</td>
+    <td>
+        <a ng-href="#/albums/{{ ::album.id }}/detail">{{ ::album.title }}</a>
+    </td>
     <td>{{ ::album.year }}</td>
     <td>{{ ::album.band.name }}</td>
     <td>{{ ::album.genre.name }}</td>

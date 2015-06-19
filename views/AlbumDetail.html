@@ -1,0 +1,21 @@
+<span>
+
+    <h4>{{ ::album.title }}</h4>
+
+    <img src="{{ ::imgPath }}{{ ::album.image }}" ng-alt="{{ ::album.title }}" width="200"/>
+
+    <div>
+        <p>Año: {{ ::album.year }}</p>
+        <p>Banda: {{ ::album.band.name }}</p>
+    </div>
+
+    <article>
+
+        <h5>Temas:</h5>
+        <ul>
+            <li ng-repeat="track in album.tracklist">{{ ::track }}</li>
+        </ul>
+
+    </article>
+
+</span>

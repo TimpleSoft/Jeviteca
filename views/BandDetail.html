@@ -1,0 +1,16 @@
+<span>
+
+    <h4>{{ ::band.name }}</h4>
+
+    <p>Origen: {{ ::band.origin }}</p>
+
+    <ul>
+        <li ng-repeat="member in band.members">
+            {{ ::member.name }}
+            <ul>
+                <li ng-repeat="instrument in member.instruments">{{ instrument }}</li>
+            </ul>
+        </li>
+    </ul>
+
+</span>
