@@ -13,7 +13,9 @@
 
         <h5>Temas:</h5>
         <ul>
-            <li ng-repeat="track in album.tracklist">{{ ::track }}</li>
+            <li ng-repeat="track in album.tracklist">
+                <a href="{{ ::youtubeLink }}{{ ::track }}">{{ ::track }}</a>
+            </li>
         </ul>
 
     </article>
